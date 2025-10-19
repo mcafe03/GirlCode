@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/GirlCode/static/css/main.fdb7e4c5.css",
-    "main.js": "/GirlCode/static/js/main.79135a5c.js",
+    "main.js": "/GirlCode/static/js/main.0d228950.js",
     "static/js/453.846913de.chunk.js": "/GirlCode/static/js/453.846913de.chunk.js",
     "static/media/redbg.png": "/GirlCode/static/media/redbg.c1eb7b54dd7f70d44034.png",
     "static/media/bag33.png": "/GirlCode/static/media/bag33.d83e24d3c05cdb691aee.png",
@@ -158,11 +158,11 @@
     "static/media/shoes888.png": "/GirlCode/static/media/shoes888.40e4bafc72101c4c088b.png",
     "index.html": "/GirlCode/index.html",
     "main.fdb7e4c5.css.map": "/GirlCode/static/css/main.fdb7e4c5.css.map",
-    "main.79135a5c.js.map": "/GirlCode/static/js/main.79135a5c.js.map",
+    "main.0d228950.js.map": "/GirlCode/static/js/main.0d228950.js.map",
     "453.846913de.chunk.js.map": "/GirlCode/static/js/453.846913de.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fdb7e4c5.css",
-    "static/js/main.79135a5c.js"
+    "static/js/main.0d228950.js"
   ]
 }
