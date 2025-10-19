@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Trash2, PackageCheck, Check } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import Header from "../components/Header";
@@ -12,6 +13,8 @@ export default function CartPage() {
   const [showConfirmCheckout, setShowConfirmCheckout] = useState(false);
   const [showOrderConfirm, setShowOrderConfirm] = useState(false);
   const [orderData, setOrderData] = useState(null);
+
+  const navigate = useNavigate();
 
 
   useEffect(() => {
@@ -488,7 +491,7 @@ export default function CartPage() {
             <button
               onClick={() => {
                 setShowOrderConfirm(false);
-                window.location.href = "/account";
+                navigate("/account");
               }}
               className="bg-[#8C1C13] text-white font-semibold px-5 py-2.5 rounded-lg hover:bg-[#A32018] transition-transform hover:-translate-y-0.5"
             >

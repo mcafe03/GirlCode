@@ -7,8 +7,9 @@ import { useEffect, useState, useRef } from "react";
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { cartItems } = useCart();
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  const { cartItems, clearCart } = useCart();
+
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,11 +44,12 @@ export default function Header() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("loggedInUser");
-    navigate("/login");
-    setDropdownOpen(false);
-  };
+const handleLogout = () => {
+  localStorage.removeItem("loggedInUser");
+  clearCart(); 
+  navigate("/login");
+  setDropdownOpen(false);
+};
 
   const handleCartClick = (e) => {
     e.preventDefault();
