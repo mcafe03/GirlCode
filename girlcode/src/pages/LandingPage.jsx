@@ -121,7 +121,7 @@ const products = [
                   </div>
                 </div>
 
-                <div className="product-info  text-left">
+                <div className="product-info  text-lefts">
                   <h3 className="product-title">{product.title}</h3>
                   <p className="product-price">{product.price}</p>
                 </div>

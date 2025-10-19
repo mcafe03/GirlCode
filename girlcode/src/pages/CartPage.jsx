@@ -13,6 +13,7 @@ export default function CartPage() {
   const [showConfirmCheckout, setShowConfirmCheckout] = useState(false);
   const [showOrderConfirm, setShowOrderConfirm] = useState(false);
   const [orderData, setOrderData] = useState(null);
+  
 
   const navigate = useNavigate();
 
@@ -93,7 +94,6 @@ export default function CartPage() {
     const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
     localStorage.setItem("orders", JSON.stringify([...existingOrders, newOrder]));
 
-    // ✅ Keep unselected items in cart
     const remainingItems = cartItems.filter(
       (cartItem) =>
         !selectedItems.some(

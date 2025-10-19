@@ -125,7 +125,7 @@ export default function AccountPage() {
             className="absolute inset-0 w-full h-full object-contain z-10 pointer-events-none"
           />
 
-      
+  
           <label htmlFor="profile-upload" className="cursor-pointer group">
             <div className="relative w-24 h-24 rounded-full bg-white flex items-center justify-center overflow-hidden z-0 shadow-md">
               <img
