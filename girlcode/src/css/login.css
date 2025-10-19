@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Monsieur+La+Doulaise&display=swap');
+
+
+.login-container {
+  display: flex;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* === LEFT SIDE === */
+.login-left {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  transition: transform 0.5s ease, 
+              opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 1;
+}
+
+.login-left.zoomed {
+  transform: scale(1.03);
+  opacity: 0.95;
+  
+}
+
+.login-overlay {
+  position: absolute;
+  bottom: 10%;
+  left: 8%;
+  color: #fff;
+}
+
+.hover-word {
+  margin: 0.3rem 0;
+  font-size: 1.8rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  cursor: pointer;
+  opacity: 0.9;
+  transition: 
+    color 0.5s ease,
+    transform 0.5s ease,
+    font-family 0.6s ease,
+    font-size 0.5s ease,
+    opacity 0.6s ease;
+}
+
+.hover-word:hover {
+  color: #fff;
+  font-weight: 400;
+  font-family: 'Monsieur La Doulaise', cursive;
+  letter-spacing: 1px;
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+
+/* === RIGHT SIDE === */
+.login-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #faf7f6;
+}
+
+.login-form {
+  width: 70%;
+  max-width: 380px;
+}
+
+.login-form h1 {
+  font-size: 2rem;
+  margin-bottom: 0.3rem;
+  color: #111;
+}
+
+.register-text {
+  color: #555;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+.register-link {
+  color: #8b1c1c;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+  color: #111;
+}
+
+.input-group {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 0.5rem;
+}
+
+.input-group input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 0.6rem 0;
+  font-size: 0.95rem;
+  outline: none;
+  color: #333;
+}
+
+.input-group input:focus {
+  border-color: #8b1c1c;
+}
+
+.error-text {
+  color: #c20d0d;
+  font-size: 0.8rem;
+  margin-top: -0.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.login-btn {
+  width: 100%;
+  background: #8b1c1c;
+  color: white;
+  border: none;
+  border-radius: 50px;
+  padding: 0.8rem;
+  margin-top: 1.2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(139, 28, 28, 0.3);
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #a31c1c;
+}
+
+
+.form-fade {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.form-fade.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* POPUP STYLES */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(25, 25, 25, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+  z-index: 999;
+}
+
+.popup-box {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 20px;
+  width: 400px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  animation: scaleUp 0.3s ease;
+}
+
+.register-popup h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.register-popup form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.success-text {
+  color: #28a745;
+  margin-top: 10px;
+  text-align: center;
+}
+
+

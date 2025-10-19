@@ -1,0 +1,332 @@
+/* Container + typography */
+.detail-page-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: "Poppins", sans-serif;
+  color: #111;
+}
+
+/* Breadcrumb */
+.detail-page-container .breadcrumb {
+  display: block;
+  margin-bottom: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+  letter-spacing: 0.3px;
+}
+.breadcrumb .active { color: #000; font-weight: 600; }
+
+/* Layout */
+.detail-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* IMAGE SECTION */
+.image-section {
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+/* Thumbnails (default: vertical column for desktop) */
+.thumbnails {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  width: 96px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+/* Small thumbnails style */
+.thumbnail {
+  width: 80px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.18s ease, border-color 0.18s ease;
+}
+.thumbnail:hover {
+  transform: translateY(-4px);
+  border-color: #b57f7f;
+}
+.thumbnail.active {
+  border-color: #b57f7f;
+  box-shadow: 0 6px 18px rgba(181,127,127,0.08);
+}
+
+/* Main image */
+.main-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.main-image img {
+  width: 100%;
+  max-width: 480px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid #eee;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.05);
+}
+
+/* Info section */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.info-section h1 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 0;
+}
+.price {
+  font-size: 1.15rem;
+  color: #a55555;
+  font-weight: 600;
+  margin-top: 0.25rem;
+}
+
+/* Size + Quantity row */
+.size-row,
+.quantity-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.25rem;
+}
+.size-row label {
+  min-width: 56px;
+  font-weight: 600;
+  color: #333;
+}
+.size-row select {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  background: white;
+  font-size: 0.95rem;
+  transition: box-shadow 0.18s, background-color 0.18s;
+  min-width: 140px;
+}
+select.updated {
+  box-shadow: 0 6px 18px rgba(140,28,19,0.12);
+  background-color: #fff6f6;
+}
+.size-chart {
+  background: none;
+  border: none;
+  color: #8C1C13;
+  font-size: 0.95rem;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+}
+
+/* Quantity controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.quantity-controls button {
+  background: #eee;
+  border: none;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: background 0.15s, transform 0.08s;
+}
+.quantity-controls button:hover { transform: translateY(-1px); }
+
+/* Details */
+.details h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+.details ul {
+  list-style: disc;
+  margin-left: 1.5rem;
+  color: #333;
+}
+
+/* Add to cart */
+.add-to-cart {
+  background-color: #000;
+  color: #fff;
+  padding: 0.85rem 1.35rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.18s ease, transform 0.08s ease;
+  margin-top: 0.5rem;
+}
+
+/* 🧩 Size Chart Modal / Overlay */
+.sizechart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.22s ease;
+}
+.sizechart-modal {
+  background: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 94%;
+  max-width: 720px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+  position: relative;
+  animation: slideUp 0.22s ease;
+}
+.sizechart-modal h2 {
+  margin: 0 0 1rem 0;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #8C1C13;
+  font-weight: 700;
+}
+.sizechart-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #8C1C13;
+  cursor: pointer;
+}
+.sizechart-content { margin-top: 0.5rem; }
+.sizechart-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.8rem;
+  font-size: 0.95rem;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.sizechart-content th {
+  background-color: #8C1C13;
+  color: #fff;
+  padding: 0.72rem 0.6rem;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+.sizechart-content td {
+  padding: 0.72rem 0.6rem;
+  border-bottom: 1px solid #f1f1f1;
+  text-align: center;
+}
+.sizechart-content tr:nth-child(even) td { background: #fafafa; }
+.clickable-size-row { cursor: pointer; transition: background-color 0.18s ease, transform 0.06s ease; }
+.clickable-size-row:hover { background-color: #fff1f0; transform: translateY(-1px); }
+.clickable-size-row.clicked { background-color: #fdecea; }
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { transform: translateY(8px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* Added-to-cart popup */
+.added-notification {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeOverlay 1.6s ease forwards;
+}
+.added-box.modern {
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  padding: 16px 22px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: "Poppins", sans-serif;
+  animation: popFade 1.6s ease forwards;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.added-box.modern img {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+.added-box.modern .text { display:flex; flex-direction:column; line-height:1.2; }
+.added-box.modern .title { font-weight:600; font-size:1.05rem; color:#222; }
+.added-box.modern .name { font-size:0.95rem; color:#6b6b6b; }
+
+@keyframes popFade {
+  0% { transform: scale(0.86); opacity: 0; }
+  20% { transform: scale(1.03); opacity: 1; }
+  80% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.95); opacity: 0; }
+}
+@keyframes fadeOverlay {
+  0% { background: rgba(0,0,0,0); }
+  20% { background: rgba(0,0,0,0.45); }
+  80% { background: rgba(0,0,0,0.45); }
+  100% { background: rgba(0,0,0,0); }
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+  .detail-layout { grid-template-columns: 1fr; gap: 1.5rem; }
+  .image-section { flex-direction: column; align-items: stretch; gap: 0.9rem; }
+  .thumbnails {
+    order: 2; flex-direction: row; width: 100%; justify-content: center; gap: 0.6rem;
+  }
+  .thumbnail { width: 70px; height: 90px; }
+  .main-image { order: 1; }
+  .main-image img { max-width: 85%; }
+  .info-section { padding-bottom: 2rem; }
+}
+
+/* Typography adjustments */
+@media (max-width: 768px) {
+  .breadcrumb { font-size: 0.8rem; }
+  .info-section h1 { font-size: 1.2rem; }
+  .price { font-size: 1rem; }
+  .info-section p, .info-section label, .info-section select, .details li { font-size: 0.85rem; }
+  .add-to-cart, .size-chart { font-size: 0.8rem; padding: 0.6rem 1.2rem; }
+  .quantity-controls button, .quantity-controls span { font-size: 0.85rem; }
+  .sizechart-modal h2 { font-size: 1rem; }
+  .sizechart-content table th, .sizechart-content table td { font-size: 0.8rem; }
+  .added-box.modern .title { font-size: 0.95rem; }
+  .added-box.modern .name { font-size: 0.8rem; }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+  .main-image img { max-width: 75%; }
+  .info-section h1 { font-size: 1rem; }
+  .price { font-size: 0.9rem; }
+  .details h3 { font-size: 0.9rem; }
+  .details li { font-size: 0.75rem; }
+  .add-to-cart, .size-chart { font-size: 0.75rem; padding: 0.5rem 1rem; }
+  .added-box.modern .title { font-size: 0.85rem; }
+  .added-box.modern .name { font-size: 0.75rem; }
+}
