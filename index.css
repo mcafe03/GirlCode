@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+
+.nav-link {
+  @apply hover:text-black;
+}
+
+.nav-link-active {
+  @apply relative text-black;
+}
+
+.nav-link-active::after {
+  content: "";
+  @apply absolute left-0 -bottom-1 w-full h-0.5 bg-black;
+}
+
+.search-box {
+  @apply flex items-center bg-gray-100 rounded-lg px-3 py-1;
+}
+
+.search-input {
+  @apply bg-transparent outline-none text-sm;
+}
+
+.icon-btn {
+  @apply w-5 h-5 cursor-pointer;
+}
