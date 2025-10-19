@@ -13,7 +13,7 @@ export default function CartPage() {
   const [showOrderConfirm, setShowOrderConfirm] = useState(false);
   const [orderData, setOrderData] = useState(null);
 
-  // ✅ Sync selected items if cart changes
+
   useEffect(() => {
     setSelectedItems((prev) =>
       prev.filter((sel) =>
@@ -22,7 +22,6 @@ export default function CartPage() {
     );
   }, [cartItems]);
 
-  // ✅ Total for selected items only
   const total = selectedItems.reduce(
     (sum, item) => sum + item.price * item.quantity,
     0
@@ -346,7 +345,7 @@ export default function CartPage() {
             <button
               onClick={handleCheckoutClick}
               disabled={selectedItems.length === 0}
-              className={`w-full mt-4 py-2.5 rounded-lg font-semibold transition-transform hover:-translate-y-0.5 ${
+              className={`w-full mt-4 py-2.5 rounded-lg font-semibold transition-transform ${
                 selectedItems.length === 0
                   ? "bg-gray-300 cursor-not-allowed text-gray-500"
                   : "bg-[#8C1C13] text-white hover:bg-[#A32018]"

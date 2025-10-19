@@ -107,22 +107,22 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="login-container flex flex-col md:flex-row min-h-screen">
+    <div className="login-container flex flex-col md:flex-row min-h-screen bg-gray-50">
       {/* IMAGE SECTION */}
       <div
-        className="login-left w-full md:w-1/2 relative bg-cover bg-center h-[220px] md:h-auto"
+        className="login-left w-full md:w-1/2 relative bg-cover bg-center h-[220px] md:h-auto transition-all duration-700"
         style={{ backgroundImage: `url(${currentImage})` }}
       >
         <div className="absolute inset-0 bg-black/30"></div>
 
-        <div className="absolute bottom-4 left-0 w-full flex flex-col items-center gap-1">
+        <div className="absolute bottom-4 left-0 w-full flex flex-col items-center gap-1 md:gap-2">
           {["Confidence", "Beauty", "Classy", "Dominance", "Allure"].map(
             (word) => (
               <h1
                 key={word}
                 onMouseEnter={() => setHovered(word)}
                 onMouseLeave={() => setHovered("")}
-                className="hover-word text-white text-xs sm:text-sm md:text-base font-medium tracking-wide drop-shadow-md"
+                className="hover-word text-white text-sm sm:text-lg font-semibold tracking-wide drop-shadow-md transition-transform duration-300 hover:scale-110 cursor-pointer"
               >
                 {word}
               </h1>
@@ -132,25 +132,25 @@ export default function RegisterPage() {
       </div>
 
       {/* FORM SECTION */}
-      <div className="login-right flex justify-center items-center w-full md:w-1/2 py-8 px-6 sm:px-10 bg-white">
+      <div className="login-right flex justify-center items-center w-full md:w-1/2 py-10 px-6 sm:px-10 bg-white shadow-lg">
         <form
           className={`login-form form-fade w-full max-w-md ${
             fadeIn ? "active" : ""
           }`}
           onSubmit={handleSubmit}
         >
-          <h1 className="text-3xl font-bold mb-2">Sign up</h1>
-          <p className="register-text mb-4">
+          <h1 className="text-3xl font-bold mb-2 text-gray-800">Sign up</h1>
+          <p className="register-text mb-4 text-gray-600">
             Already have an account?{" "}
             <span
-              className="register-link text-red-600 font-semibold cursor-pointer"
+              className="register-link text-red-600 font-semibold cursor-pointer hover:underline"
               onClick={() => navigate("/login")}
             >
               Login here!
             </span>
           </p>
 
-          <label>Email</label>
+          <label className="block font-medium text-gray-700 mb-1">Email</label>
           <div className="input-group mb-3">
             <input
               type="email"
@@ -158,12 +158,18 @@ export default function RegisterPage() {
               placeholder="Enter your Gmail address"
               value={form.email}
               onChange={handleChange}
-              className="w-full"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400 transition"
             />
           </div>
-          {errors.email && <p className="error-text">{errors.email}</p>}
+          {errors.email && (
+            <p className="error-text text-red-500 text-sm mb-2">
+              {errors.email}
+            </p>
+          )}
 
-          <label>Username</label>
+          <label className="block font-medium text-gray-700 mb-1">
+            Username
+          </label>
           <div className="input-group mb-3">
             <input
               type="text"
@@ -171,12 +177,18 @@ export default function RegisterPage() {
               placeholder="Enter your username"
               value={form.username}
               onChange={handleChange}
-              className="w-full"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400 transition"
             />
           </div>
-          {errors.username && <p className="error-text">{errors.username}</p>}
+          {errors.username && (
+            <p className="error-text text-red-500 text-sm mb-2">
+              {errors.username}
+            </p>
+          )}
 
-          <label>Password</label>
+          <label className="block font-medium text-gray-700 mb-1">
+            Password
+          </label>
           <div className="input-group mb-3">
             <input
               type="password"
@@ -184,12 +196,18 @@ export default function RegisterPage() {
               placeholder="Enter your password"
               value={form.password}
               onChange={handleChange}
-              className="w-full"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400 transition"
             />
           </div>
-          {errors.password && <p className="error-text">{errors.password}</p>}
+          {errors.password && (
+            <p className="error-text text-red-500 text-sm mb-2">
+              {errors.password}
+            </p>
+          )}
 
-          <label>Confirm Password</label>
+          <label className="block font-medium text-gray-700 mb-1">
+            Confirm Password
+          </label>
           <div className="input-group mb-3">
             <input
               type="password"
@@ -197,24 +215,29 @@ export default function RegisterPage() {
               placeholder="Confirm your password"
               value={form.confirmPassword}
               onChange={handleChange}
-              className="w-full"
+              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red-400 transition"
             />
           </div>
           {errors.confirmPassword && (
-            <p className="error-text">{errors.confirmPassword}</p>
+            <p className="error-text text-red-500 text-sm mb-2">
+              {errors.confirmPassword}
+            </p>
           )}
 
           {message && (
             <p
-              className={`${
-                message.includes("⚠️") ? "error-text" : "success-text"
+              className={`text-center mt-2 text-sm ${
+                message.includes("⚠️") ? "text-red-600" : "text-green-600"
               }`}
             >
               {message}
             </p>
           )}
 
-          <button type="submit" className="login-btn w-full mt-4">
+          <button
+            type="submit"
+            className="login-btn w-full mt-6 bg-red-600 hover:bg-red-700 text-white font-semibold py-2 rounded-lg transition-all shadow-md"
+          >
             Register
           </button>
         </form>

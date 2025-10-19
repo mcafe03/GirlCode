@@ -10,7 +10,6 @@ export default function Detail() {
   const { id } = useParams();
   const product = products.find((item) => item.id === parseInt(id));
 
-  // safe initial mainImage
   const [mainImage, setMainImage] = useState(product?.images?.[0] || "");
   const [quantity, setQuantity] = useState(1);
   const [selectedSize, setSelectedSize] = useState("Small");
@@ -52,7 +51,7 @@ export default function Detail() {
     return (
       <>
         <Header />
-        <div className="detail-page-container">
+        <div className="detail-page-container text-center py-10">
           <p>Product not found.</p>
         </div>
       </>
@@ -74,7 +73,6 @@ export default function Detail() {
       price: product.price,
     });
 
-   
     setShowCartPopup(true);
     setTimeout(() => setShowCartPopup(false), 1600);
   };
@@ -88,18 +86,17 @@ export default function Detail() {
   );
 
   const renderSizeChart = () => {
-   
     if (categoryList.includes("plus size") || categoryList.includes("dresses")) {
       return (
         <>
-          <h3>Dresses & Plus Size</h3>
-          <table>
+          <h3 className="text-lg font-medium mb-3">Dresses & Plus Size</h3>
+          <table className="w-full text-left border-collapse">
             <thead>
               <tr>
-                <th>Size</th>
-                <th>Bust (in)</th>
-                <th>Waist (in)</th>
-                <th>Hips (in)</th>
+                <th className="pb-2">Size</th>
+                <th className="pb-2">Bust (in)</th>
+                <th className="pb-2">Waist (in)</th>
+                <th className="pb-2">Hips (in)</th>
               </tr>
             </thead>
             <tbody>
@@ -114,13 +111,13 @@ export default function Detail() {
               ].map((row) => (
                 <tr
                   key={row.size}
-                  className="clickable-size-row"
+                  className="clickable-size-row cursor-pointer hover:bg-gray-50"
                   onClick={() => handleSizeSelect(row.size)}
                 >
-                  <td>{row.size}</td>
-                  <td>{row.bust}</td>
-                  <td>{row.waist}</td>
-                  <td>{row.hips}</td>
+                  <td className="py-2">{row.size}</td>
+                  <td className="py-2">{row.bust}</td>
+                  <td className="py-2">{row.waist}</td>
+                  <td className="py-2">{row.hips}</td>
                 </tr>
               ))}
             </tbody>
@@ -132,14 +129,14 @@ export default function Detail() {
     if (categoryList.includes("tops")) {
       return (
         <>
-          <h3>Tops</h3>
-          <table>
+          <h3 className="text-lg font-medium mb-3">Tops</h3>
+          <table className="w-full text-left border-collapse">
             <thead>
               <tr>
-                <th>Size</th>
-                <th>Bust (in)</th>
-                <th>Waist (in)</th>
-                <th>Length (in)</th>
+                <th className="pb-2">Size</th>
+                <th className="pb-2">Bust (in)</th>
+                <th className="pb-2">Waist (in)</th>
+                <th className="pb-2">Length (in)</th>
               </tr>
             </thead>
             <tbody>
@@ -151,13 +148,13 @@ export default function Detail() {
               ].map((row) => (
                 <tr
                   key={row.size}
-                  className="clickable-size-row"
+                  className="clickable-size-row cursor-pointer hover:bg-gray-50"
                   onClick={() => handleSizeSelect(row.size)}
                 >
-                  <td>{row.size}</td>
-                  <td>{row.bust}</td>
-                  <td>{row.waist}</td>
-                  <td>{row.length}</td>
+                  <td className="py-2">{row.size}</td>
+                  <td className="py-2">{row.bust}</td>
+                  <td className="py-2">{row.waist}</td>
+                  <td className="py-2">{row.length}</td>
                 </tr>
               ))}
             </tbody>
@@ -169,14 +166,14 @@ export default function Detail() {
     if (categoryList.includes("bottoms")) {
       return (
         <>
-          <h3>Bottoms</h3>
-          <table>
+          <h3 className="text-lg font-medium mb-3">Bottoms</h3>
+          <table className="w-full text-left border-collapse">
             <thead>
               <tr>
-                <th>Size</th>
-                <th>Waist (in)</th>
-                <th>Hips (in)</th>
-                <th>Length (in)</th>
+                <th className="pb-2">Size</th>
+                <th className="pb-2">Waist (in)</th>
+                <th className="pb-2">Hips (in)</th>
+                <th className="pb-2">Length (in)</th>
               </tr>
             </thead>
             <tbody>
@@ -188,13 +185,13 @@ export default function Detail() {
               ].map((row) => (
                 <tr
                   key={row.size}
-                  className="clickable-size-row"
+                  className="clickable-size-row cursor-pointer hover:bg-gray-50"
                   onClick={() => handleSizeSelect(row.size)}
                 >
-                  <td>{row.size}</td>
-                  <td>{row.waist}</td>
-                  <td>{row.hips}</td>
-                  <td>{row.length}</td>
+                  <td className="py-2">{row.size}</td>
+                  <td className="py-2">{row.waist}</td>
+                  <td className="py-2">{row.hips}</td>
+                  <td className="py-2">{row.length}</td>
                 </tr>
               ))}
             </tbody>
@@ -206,13 +203,13 @@ export default function Detail() {
     if (categoryList.includes("shoes")) {
       return (
         <>
-          <h3>Women's Shoes</h3>
-          <table>
+          <h3 className="text-lg font-medium mb-3">Women's Shoes</h3>
+          <table className="w-full text-left border-collapse">
             <thead>
               <tr>
-                <th>US</th>
-                <th>EU</th>
-                <th>Foot Length (cm)</th>
+                <th className="pb-2">US</th>
+                <th className="pb-2">EU</th>
+                <th className="pb-2">Foot Length (cm)</th>
               </tr>
             </thead>
             <tbody>
@@ -226,12 +223,12 @@ export default function Detail() {
               ].map((row) => (
                 <tr
                   key={row.size}
-                  className="clickable-size-row"
+                  className="clickable-size-row cursor-pointer hover:bg-gray-50"
                   onClick={() => handleSizeSelect(row.size)}
                 >
-                  <td>{row.size}</td>
-                  <td>{row.eu}</td>
-                  <td>{row.length}</td>
+                  <td className="py-2">{row.size}</td>
+                  <td className="py-2">{row.eu}</td>
+                  <td className="py-2">{row.length}</td>
                 </tr>
               ))}
             </tbody>
@@ -247,98 +244,123 @@ export default function Detail() {
     <>
       <Header />
 
-      <div className="detail-page-container">
-        <div className="breadcrumb">
-          <Link to="/" className="breadcrumb-link">Home</Link> ›{" "}
-          <Link to="/products" className="breadcrumb-link">Products</Link> ›{" "}
-          <span className="active">{product.name}</span>
+      <div className="detail-page-container max-w-6xl mx-auto px-4 py-8">
+        <div className="breadcrumb text-sm mb-4">
+          <Link to="/" className="breadcrumb-link text-gray-500 hover:text-black">
+            Home
+          </Link>{" "}
+          ›{" "}
+          <Link to="/products" className="breadcrumb-link text-gray-500 hover:text-black">
+            Products
+          </Link>{" "}
+          › <span className="active font-semibold">{product.name}</span>
         </div>
 
-        <div className="detail-layout">
-          {/* IMAGE SECTION: thumbnails left on desktop, below on mobile */}
-          <div className="image-section">
-            <div className="thumbnails left">
+        <div className="detail-layout flex flex-col lg:flex-row gap-8">
+          {/* IMAGE SECTION */}
+          <div className="image-section flex flex-col items-center lg:flex-row lg:items-start gap-4">
+            <div className="thumbnails flex lg:flex-col gap-3">
               {product.images.map((img, i) => (
                 <img
                   key={i}
                   src={img}
                   alt={`${product.name} ${i}`}
-                  className={`thumbnail ${mainImage === img ? "active" : ""}`}
+                  className={`thumbnail w-20 h-28 object-cover rounded-md border ${
+                    mainImage === img ? "border-black" : "border-gray-200"
+                  }`}
                   onClick={() => setMainImage(img)}
                 />
               ))}
             </div>
 
-            <div className="main-image">
-              <img src={mainImage} alt={product.name} />
+            <div className="main-image flex-1">
+              <img
+                src={mainImage}
+                alt={product.name}
+                className="w-full h-auto rounded-xl shadow-md"
+              />
             </div>
           </div>
 
           {/* INFO SECTION */}
-          <div className="info-section">
-            <h1>{product.name}</h1>
-            <p className="price">{product.price} PHP</p>
+          <div className="info-section flex-1">
+            <h1 className="text-2xl font-semibold mb-2">{product.name}</h1>
+            <p className="price text-lg text-rose-700 mb-4">{product.price} PHP</p>
 
             {hasSizeChart && (
-              <div className="size-row">
-                <label>Size</label>
-                <select
-                  value={selectedSize}
-                  onChange={(e) => setSelectedSize(e.target.value)}
-                >
-                  {categoryList.includes("shoes") ? (
-                    <>
-                      <option>US 5</option>
-                      <option>US 6</option>
-                      <option>US 7</option>
-                      <option>US 8</option>
-                      <option>US 9</option>
-                      <option>US 10</option>
-                    </>
-                  ) : categoryList.includes("plus size") ||
-                    categoryList.includes("dresses") ? (
-                    <>
-                      <option>Small</option>
-                      <option>Medium</option>
-                      <option>Large</option>
-                      <option>XL</option>
-                      <option>1X</option>
-                      <option>2X</option>
-                      <option>3X</option>
-                    </>
-                  ) : (
-                    <>
-                      <option>Small</option>
-                      <option>Medium</option>
-                      <option>Large</option>
-                      <option>XL</option>
-                    </>
-                  )}
-                </select>
-                <button
-                  className="size-chart"
-                  onClick={() => setShowSizeChart(true)}
-                >
-                  Size Chart
-                </button>
+              <div className="size-row mb-4">
+                <label className="block font-medium mb-1">Size</label>
+                <div className="flex items-center gap-3">
+                  <select
+                    value={selectedSize}
+                    onChange={(e) => setSelectedSize(e.target.value)}
+                    className="border rounded-md px-3 py-1"
+                  >
+                    {categoryList.includes("shoes") ? (
+                      <>
+                        <option>US 5</option>
+                        <option>US 6</option>
+                        <option>US 7</option>
+                        <option>US 8</option>
+                        <option>US 9</option>
+                        <option>US 10</option>
+                      </>
+                    ) : categoryList.includes("plus size") ||
+                      categoryList.includes("dresses") ? (
+                      <>
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                        <option>XL</option>
+                        <option>1X</option>
+                        <option>2X</option>
+                        <option>3X</option>
+                      </>
+                    ) : (
+                      <>
+                        <option>Small</option>
+                        <option>Medium</option>
+                        <option>Large</option>
+                        <option>XL</option>
+                      </>
+                    )}
+                  </select>
+                  <button
+                    className="size-chart text-rose-700 underline hover:text-black"
+                    onClick={() => setShowSizeChart(true)}
+                  >
+                    Size Chart
+                  </button>
+                </div>
               </div>
             )}
 
-            <div className="quantity-row">
-              <label>Quantity</label>
-              <div className="quantity-controls">
-                <button onClick={decreaseQuantity}>-</button>
+            <div className="quantity-row mb-4">
+              <label className="block font-medium mb-1">Quantity</label>
+              <div className="quantity-controls flex items-center gap-2">
+                <button onClick={decreaseQuantity} className="border px-2 rounded">
+                  -
+                </button>
                 <span>{quantity}</span>
-                <button onClick={increaseQuantity}>+</button>
+                <button onClick={increaseQuantity} className="border px-2 rounded">
+                  +
+                </button>
               </div>
             </div>
 
-            <div className="details">
-              <h3>Description and Details</h3>
-              <ul>{product.details?.map((d, i) => <li key={i}>{d}</li>)}</ul>
+            <div className="details mb-6">
+              <h3 className="font-semibold mb-2">Description and Details</h3>
+              <ul className="list-disc list-inside space-y-1">
+                {product.details?.map((d, i) => (
+                  <li key={i}>{d}</li>
+                ))}
+              </ul>
             </div>
 
-            <button className="add-to-cart" onClick={handleAddToCart}>
+            <button
+              className="add-to-cart bg-[#8C1C13] text-white px-6 py-3 rounded-md hover:bg-[#A32018] transition"
+              onClick={handleAddToCart}
+            >
               Add to Cart
             </button>
           </div>
@@ -347,33 +369,43 @@ export default function Detail() {
 
       {/* Size Chart Modal */}
       {showSizeChart && (
-        <div className="sizechart-overlay" onClick={() => setShowSizeChart(false)}>
+        <div
+          className="sizechart-overlay fixed inset-0 flex items-center justify-center bg-black/50 z-40"
+          onClick={() => setShowSizeChart(false)}
+        >
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 8 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 8 }}
             transition={{ duration: 0.22 }}
-            className="sizechart-modal"
+            className="sizechart-modal bg-white p-6 rounded-lg shadow-lg w-full max-w-xl relative"
             onClick={(e) => e.stopPropagation()}
           >
-            <button className="sizechart-close" onClick={() => setShowSizeChart(false)}>✕</button>
-            <h2>Size Chart</h2>
+            <button
+              className="sizechart-close absolute top-3 right-3 text-xl"
+              onClick={() => setShowSizeChart(false)}
+            >
+              ✕
+            </button>
+            <h2 className="text-xl font-semibold mb-4">Size Chart</h2>
             <div className="sizechart-content">{renderSizeChart()}</div>
           </motion.div>
         </div>
       )}
 
-      {/* Centered Added-to-Cart Popup */}
       {showCartPopup && (
-        <div className="added-notification" onClick={() => setShowCartPopup(false)}>
+        <div
+          className="added-notification fixed inset-0 flex items-center justify-center bg-black/40 z-50"
+          onClick={() => setShowCartPopup(false)}
+        >
           <div
-            className="added-box modern"
+            className="added-box modern bg-white flex items-center gap-3 p-4 rounded-lg shadow-md"
             onClick={(e) => e.stopPropagation()}
           >
-            <img src={mainImage} alt={product.name} />
+            <img src={mainImage} alt={product.name} className="w-16 h-16 object-cover rounded-md" />
             <div className="text">
-              <p className="title">Added to Cart</p>
-              <p className="name">{product.name}</p>
+              <p className="title font-medium">Added to Cart</p>
+              <p className="name text-gray-600">{product.name}</p>
             </div>
           </div>
         </div>

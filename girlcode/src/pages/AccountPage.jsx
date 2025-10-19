@@ -17,7 +17,6 @@ export default function AccountPage() {
   const [profilePic, setProfilePic] = useState(null);
 
 
-  // Load saved image from localStorage on mount
   useEffect(() => {
     const savedImage = localStorage.getItem("profilePic");
     if (savedImage) {
@@ -25,7 +24,6 @@ export default function AccountPage() {
     }
   }, []);
 
-  // Handle upload and save to localStorage
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -63,10 +61,6 @@ export default function AccountPage() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("loggedInUser");
-    window.location.href = "/login";
-  };
 
   const requestStatusChange = (orderId, newStatus) => {
     if (newStatus === "Arrived") {
