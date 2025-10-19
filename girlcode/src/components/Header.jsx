@@ -7,8 +7,9 @@ import { useEffect, useState, useRef } from "react";
 export default function Header() {
   const location = useLocation();
   const navigate = useNavigate();
-  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   const { cartItems, clearCart } = useCart();
+  const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+
 
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
